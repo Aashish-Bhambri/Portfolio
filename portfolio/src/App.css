@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  /* Canvas & Surfaces */
+  --color-canvas: #151312;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-input: #111111;
+
+  /* Accents */
+  --color-accent-orange: #f46c38;
+  --color-accent-lime: #c5ff41;
+
+  /* Typography */
+  --color-content-primary: #ffffff;
+  --color-content-ghost: rgba(182, 180, 189, 0.2);
+  --color-content-secondary: #998f8f;
+  --color-content-muted: #6a6b6e;
+}
+
+input {
+  padding: 12px;
+  border-radius: 16px;
+}
