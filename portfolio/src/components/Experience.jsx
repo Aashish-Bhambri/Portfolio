@@ -4,8 +4,8 @@ import { Check, Zap, Sparkles } from 'lucide-react'
 const Experience = () => {
   const steps = [
     {
-      title: "CS Degree & Core Foundations",
-      org: "State University of Technology",
+      title: "B.E CSE",
+      org: "Chandigarh University",
       date: "2022 – 2026",
       desc: "Mastered Data Structures & Algorithms, Object-Oriented Architecture, Database Systems (PostgreSQL), and modern web fundamentals.",
       badge: "Milestone 01",

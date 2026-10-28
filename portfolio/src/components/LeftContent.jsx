@@ -2,8 +2,8 @@ import React from 'react'
 
 const LeftContent = () => {
   return (
-    <div className='w-full lg:w-[380px] xl:w-[420px] p-6 lg:p-10 flex justify-center lg:sticky lg:top-0 lg:h-screen flex-col'>
-      <div className='bg-white rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-2xl border border-black/5'>
+    <div className='w-[40%]  p-6 lg:p-10 flex justify-center lg:sticky lg:top-0 lg:h-screen flex-col'>
+      <div className='bg-white lg:w-[380px] xl:w-[420px] rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-2xl border border-black/5'>
         <div>
           {/* Top Header: Monogram Avatar + Status Badge */}
           <div className='flex items-center justify-between mb-5'>

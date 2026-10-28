@@ -7,7 +7,7 @@ import Contact from './Contact'
 
 const RightContent = () => {
   return (
-    <div className='flex-1 w-full max-w-5xl px-6 sm:px-10 lg:px-16 py-12 flex flex-col gap-24 lg:gap-32'>
+    <div className='flex-1 w-full max-w-5xl px-6 sm:px-10 lg:px-8 py-12 flex flex-col gap-24 lg:gap-32'>
       <section id="about">
         <About />
       </section>
