@@ -7,24 +7,24 @@ import Contact from './Contact'
 
 const RightContent = () => {
   return (
-    <div className='flex-1 w-full max-w-5xl px-6 sm:px-10 lg:px-8 py-12 flex flex-col gap-24 lg:gap-32'>
-      <section id="about">
+    <div className='flex-1 w-full min-w-0 max-w-3xl xl:max-w-4xl py-4 sm:py-6 lg:pt-24 lg:pb-16 flex flex-col gap-20 sm:gap-28 lg:gap-32'>
+      <section id='about' className='scroll-mt-24 sm:scroll-mt-28 w-full'>
         <About />
       </section>
 
-      <section id="projects">
+      <section id='projects' className='scroll-mt-24 sm:scroll-mt-28 w-full'>
         <Project />
       </section>
 
-      <section id="experience">
+      <section id='experience' className='scroll-mt-24 sm:scroll-mt-28 w-full'>
         <Experience />
       </section>
 
-      <section id="tech-stack">
+      <section id='tech-stack' className='scroll-mt-24 sm:scroll-mt-28 w-full'>
         <TechStack />
       </section>
 
-      <section id="contact">
+      <section id='contact' className='scroll-mt-24 sm:scroll-mt-28 w-full'>
         <Contact />
       </section>
     </div>

@@ -17,7 +17,11 @@
   --color-content-muted: #6a6b6e;
 }
 
-input {
+html {
+  scroll-behavior: smooth;
+}
+
+input, textarea {
   padding: 12px;
   border-radius: 16px;
 }
