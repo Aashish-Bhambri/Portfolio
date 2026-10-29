@@ -3,8 +3,21 @@ import './App.css'
 import Navbar from './components/Navbar'
 import LeftContent from './components/LeftContent'
 import RightContent from './components/RightContent'
+import Lenis from 'lenis'
 
 const App = () => {
+
+  // Initialize Lenis
+  const lenis = new Lenis();
+
+  // Use requestAnimationFrame to continuously update the scroll
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
   return (
     <div className='min-h-screen bg-canvas text-white selection:bg-accent-orange selection:text-white'>
       {/* Floating Interactive Navbar */}
