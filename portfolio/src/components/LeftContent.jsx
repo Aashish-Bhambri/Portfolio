@@ -19,8 +19,8 @@ const LeftContent = () => {
         <div>
           {/* Top Header: Monogram Avatar + Status Badge */}
           <div className='flex items-center justify-between mb-5'>
-            <div className='w-12 h-12 rounded-2xl bg-[#151312] text-white flex items-center justify-center font-extrabold text-base tracking-wider shadow-md'>
-              AB
+            <div className='w-12 h-12 rounded-2xl overflow-hidden shadow-md border border-black/5 flex-shrink-0 bg-[#151312]'>
+              <img src='/favicon.svg' alt='AB Monogram Logo' className='w-full h-full object-cover' />
             </div>
             <div className='flex items-center gap-2 px-3 py-1 rounded-full bg-[#c5ff41]/15 border border-[#c5ff41]/40 text-[#2f5c00] text-xs font-semibold'>
               <span className='w-2 h-2 rounded-full bg-[#65a30d] animate-pulse'></span>
