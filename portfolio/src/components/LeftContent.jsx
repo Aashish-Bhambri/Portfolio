@@ -13,19 +13,16 @@ const LeftContent = () => {
   return (
     <aside
       aria-label='Profile Summary'
-      className='w-full max-w-full sm:max-w-[420px] lg:w-[380px] xl:w-[420px] flex flex-col justify-center lg:sticky lg:top-2 lg:h-screen flex-shrink-0 z-30 lg:mt-20'
+      className='w-full max-w-full sm:max-w-[420px] lg:w-[380px] xl:w-[420px] flex flex-col justify-center lg:sticky lg:top-2 lg:h-screen flex-shrink-0 z-30 lg:mt-20 '
     >
-      <div className='w-full bg-white rounded-3xl p-5 sm:p-7 flex flex-col justify-between shadow-2xl border border-black/5'>
+      <div className='w-full bg-white rounded-3xl p-5 sm:p-7 flex flex-col justify-between shadow-2xl border border-black/5 lg:min-h-[700px]'>
         <div>
           {/* Top Header: Monogram Avatar + Status Badge */}
           <div className='flex items-center justify-between mb-5'>
             <div className='w-12 h-12 rounded-2xl overflow-hidden shadow-md border border-black/5 flex-shrink-0 bg-[#151312]'>
               <img src='/favicon.svg' alt='AB Monogram Logo' className='w-full h-full object-cover' />
             </div>
-            <div className='flex items-center gap-2 px-3 py-1 rounded-full bg-[#c5ff41]/15 border border-[#c5ff41]/40 text-[#2f5c00] text-xs font-semibold'>
-              <span className='w-2 h-2 rounded-full bg-[#65a30d] animate-pulse'></span>
-              Available for Hire
-            </div>
+
           </div>
 
           {/* Name & Title */}
@@ -43,23 +40,7 @@ const LeftContent = () => {
             Computer Science engineer specializing in modern React 19, TypeScript, and scalable cloud-native architectures. Experienced in building autonomous LLM agents (MCP), full-stack platforms, and performant web apps.
           </p>
 
-          {/* Key Facts / Education Info Box */}
-          <div className='bg-[#faf8f5] rounded-2xl p-3.5 sm:p-4 border border-[#eeebe5] mb-5 space-y-2.5'>
-            <div className='flex items-start gap-2.5'>
-              <span className='text-base leading-none'>🎓</span>
-              <div>
-                <div className='text-xs font-bold text-[#151312]'>Chandigarh University</div>
-                <div className='text-[11px] text-[#777777]'>B.E. in Computer Science • 2022 – 2026</div>
-              </div>
-            </div>
-            <div className='flex items-start gap-2.5 pt-2 border-t border-[#e8e4dc]'>
-              <span className='text-base leading-none'>📍</span>
-              <div>
-                <div className='text-xs font-bold text-[#151312]'>Mohali, Punjab, India</div>
-                <div className='text-[11px] text-[#777777]'>Open to Remote & On-Site Roles</div>
-              </div>
-            </div>
-          </div>
+
 
           {/* Core Tech Stack Tags */}
           <div className='mb-6'>
