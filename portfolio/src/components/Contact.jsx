@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Send, CheckCircle2 } from 'lucide-react'
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser'
 
@@ -38,7 +38,10 @@ const Contact = () => {
         VITE_EMAILJS_SERVICE_ID,
         VITE_EMAILJS_TEMPLATE_ID,
         {
+          name: formData.name,
+          email: formData.email,
           from_name: formData.name,
+          from_email: formData.email,
           contact_email: formData.email,
           reply_to: formData.email,
           message: formData.message,

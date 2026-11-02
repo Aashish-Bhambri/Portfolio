@@ -16,7 +16,7 @@ The React Compiler is not enabled on this template because of its impact on dev 
 The contact form uses [EmailJS](https://www.emailjs.com/) to send messages from the browser.
 
 1. Create an EmailJS email service and email template.
-2. Set the template's **To Email** to your own inbox as a fixed address. Do not use a sender variable such as `{{contact_email}}` for the recipient, and do not create an auto-reply template. Use `{{from_name}}`, `{{contact_email}}`, and `{{message}}` in the email body to see the sender's details. Set Reply-To to `{{reply_to}}` so you can reply to the sender.
+2. Set the template's **To Email** to your own inbox as a fixed address. Do not use a sender variable such as `{{email}}` for the recipient, and do not create an auto-reply template. In the email body, include `Name: {{name}}`, `Email: {{email}}`, and `Message: {{message}}`. Set Reply-To to `{{reply_to}}` so you can reply to the sender.
 3. For local development, copy `.env.example` to `.env.local` and provide your EmailJS service ID, template ID, and public key.
 4. Restart the Vite development server after editing environment variables.
 
