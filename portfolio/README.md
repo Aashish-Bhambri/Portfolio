@@ -17,12 +17,18 @@ The contact form uses [EmailJS](https://www.emailjs.com/) to send messages from 
 
 1. Create an EmailJS email service and email template.
 2. Set the template's **To Email** to your own inbox as a fixed address. Do not use a sender variable such as `{{contact_email}}` for the recipient, and do not create an auto-reply template. Use `{{from_name}}`, `{{contact_email}}`, and `{{message}}` in the email body to see the sender's details. Set Reply-To to `{{reply_to}}` so you can reply to the sender.
-3. Copy `.env.example` to `.env.local` and provide your EmailJS service ID, template ID, and public key.
+3. For local development, copy `.env.example` to `.env.local` and provide your EmailJS service ID, template ID, and public key.
 4. Restart the Vite development server after editing environment variables.
 
 The form sends one notification to the recipient configured in the EmailJS template; it does not send a confirmation email to the sender. The recipient and any auto-reply behavior are controlled by your EmailJS dashboard template settings.
 
-The public key is intended for browser use. Configure EmailJS's allowed origins and abuse protection for your deployed site.
+### Deployment
+
+Vite embeds `VITE_` variables into the site at build time. Add `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY` to your hosting provider's **build environment variables** (not just a runtime/server environment), then trigger a new build and deployment. `.env.local` is ignored by Git and is not deployed.
+
+Also add your production website's exact origin (scheme and hostname, without a path) to the allowed origins in your EmailJS account settings. Check the browser console for the EmailJS error if the form still fails after redeploying.
+
+The EmailJS public key is intended for browser use. Configure allowed origins and abuse protection for your deployed site.
 
 ## Expanding the Oxlint configuration
 

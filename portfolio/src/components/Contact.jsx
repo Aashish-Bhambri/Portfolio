@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Send, CheckCircle2 } from 'lucide-react'
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser'
 
@@ -11,11 +11,21 @@ const Contact = () => {
     e.preventDefault()
     if (isSubmitting) return
 
-    const { VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY } = import.meta.env
-    if (!VITE_EMAILJS_SERVICE_ID || !VITE_EMAILJS_TEMPLATE_ID || !VITE_EMAILJS_PUBLIC_KEY) {
+    const {
+      VITE_EMAILJS_SERVICE_ID,
+      VITE_EMAILJS_TEMPLATE_ID,
+      VITE_EMAILJS_PUBLIC_KEY,
+    } = import.meta.env
+    const missingConfig = [
+      ['VITE_EMAILJS_SERVICE_ID', VITE_EMAILJS_SERVICE_ID],
+      ['VITE_EMAILJS_TEMPLATE_ID', VITE_EMAILJS_TEMPLATE_ID],
+      ['VITE_EMAILJS_PUBLIC_KEY', VITE_EMAILJS_PUBLIC_KEY],
+    ].filter(([, value]) => !value?.trim()).map(([name]) => name)
+
+    if (missingConfig.length > 0) {
       setStatus({
         type: 'error',
-        message: 'The contact form is not configured yet. Please try again later.',
+        message: `Contact form configuration is missing for this deployment: ${missingConfig.join(', ')}. Add these as build environment variables and redeploy.`,
       })
       return
     }
