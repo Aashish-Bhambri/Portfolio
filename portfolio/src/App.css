@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import 'lenis/dist/lenis.css';
 
-
 @theme {
   /* Canvas & Surfaces */
   --color-canvas: #151312;
@@ -10,20 +9,38 @@
 
   /* Accents */
   --color-accent-orange: #f46c38;
+  --color-accent-ember-text: #b84316;
   --color-accent-lime: #c5ff41;
 
   /* Typography */
   --color-content-primary: #ffffff;
-  --color-content-ghost: rgba(182, 180, 189, 0.2);
+  --color-content-ghost: rgba(182, 180, 189, 0.55);
   --color-content-secondary: #998f8f;
   --color-content-muted: #6a6b6e;
 }
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    color-scheme: dark;
+    scrollbar-color: #3a3532 #151312;
+  }
+
+  body {
+    caret-color: var(--color-accent-orange);
+    accent-color: var(--color-accent-orange);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--color-accent-orange);
+    outline-offset: 2px;
+  }
 }
 
-input, textarea {
-  padding: 12px;
-  border-radius: 16px;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
 }

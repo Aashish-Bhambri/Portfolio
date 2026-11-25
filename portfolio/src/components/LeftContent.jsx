@@ -5,7 +5,8 @@ const LeftContent = () => {
     e.preventDefault()
     const contactSection = document.getElementById('contact')
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' })
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      contactSection.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' })
       window.history.pushState(null, '', '#contact')
     }
   }
@@ -13,16 +14,15 @@ const LeftContent = () => {
   return (
     <aside
       aria-label='Profile Summary'
-      className='w-full max-w-full sm:max-w-[420px] lg:w-[380px] xl:w-[420px] flex flex-col justify-center lg:sticky lg:top-2 lg:h-screen flex-shrink-0 z-30 lg:mt-20 '
+      className='w-full max-w-full sm:max-w-full  lg:w-[380px] xl:w-[420px] lg:sticky lg:top-26 flex-shrink-0 z-30'
     >
-      <div className='w-full bg-white rounded-3xl p-5 sm:p-7 flex flex-col justify-between shadow-2xl border border-black/5 lg:min-h-[700px]'>
+      <div className='w-full bg-white rounded-3xl sm:min-h-[540px] p-5 sm:p-7 flex flex-col justify-between gap-6 shadow-2xl border border-black/5 lg:min-h-[650px]'>
         <div>
-          {/* Top Header: Monogram Avatar + Status Badge */}
+          {/* Top Header: Monogram Avatar */}
           <div className='flex items-center justify-between mb-5'>
             <div className='w-12 h-12 rounded-2xl overflow-hidden shadow-md border border-black/5 flex-shrink-0 bg-[#151312]'>
-              <img src='/favicon.svg' alt='AB Monogram Logo' className='w-full h-full object-cover' />
+              <img src='/favicon.svg' alt='AB Monogram Logo' width={48} height={48} className='w-full h-full object-cover' />
             </div>
-
           </div>
 
           {/* Name & Title */}
@@ -30,7 +30,7 @@ const LeftContent = () => {
             <h2 className='text-2xl sm:text-3xl font-extrabold text-[#151312] tracking-tight'>
               Aashish Bhambri
             </h2>
-            <p className='text-accent-orange font-bold text-xs sm:text-sm tracking-wide'>
+            <p className='text-[#b84316] font-bold text-xs sm:text-sm tracking-wide'>
               Full-Stack Software Engineer
             </p>
           </div>
@@ -40,15 +40,13 @@ const LeftContent = () => {
             Computer Science engineer specializing in modern React 19, TypeScript, and scalable cloud-native architectures. Experienced in building autonomous LLM agents (MCP), full-stack platforms, and performant web apps.
           </p>
 
-
-
           {/* Core Tech Stack Tags */}
-          <div className='mb-6'>
-            <div className='text-[11px] font-mono uppercase tracking-wider text-[#999999] mb-2 font-semibold'>
+          <div>
+            <div className='text-[11px] font-mono uppercase tracking-wider text-[#666666] mb-2 font-semibold'>
               Core Technologies
             </div>
             <div className='flex flex-wrap gap-1.5'>
-              {['React 19', 'TypeScript', 'Node.js', 'PostgreSQL', 'Tailwind'].map((tech) => (
+              {['React 19', 'TypeScript', 'Node.js',  'Tailwind CSS','PostgreSQL','MongoDB'].map((tech) => (
                 <span
                   key={tech}
                   className='px-2.5 py-1 rounded-lg bg-[#f4f1ed] text-[#151312] text-xs font-semibold'
@@ -61,15 +59,15 @@ const LeftContent = () => {
         </div>
 
         {/* Action Buttons & Socials */}
-        <div className='flex flex-col gap-2.5 pt-3 border-t border-[#f0ece5]'>
+        <div className='flex flex-col gap-2.5 pt-4 border-t border-[#f0ece5]'>
           {/* Primary CTA */}
           <a
             href='#contact'
             onClick={handleContactClick}
-            className='w-full bg-accent-orange hover:brightness-110 active:scale-[0.98] text-white font-bold py-3 px-6 rounded-xl text-center text-sm transition-all shadow-md shadow-accent-orange/20 cursor-pointer flex items-center justify-center gap-2'
+            className='w-full bg-accent-orange hover:brightness-105 active:scale-[0.98] text-[#151312] font-bold py-3 px-6 rounded-xl text-center text-sm transition-all shadow-md shadow-accent-orange/20 cursor-pointer flex items-center justify-center gap-2'
           >
             <span>Get in Touch</span>
-            <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+            <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24' aria-hidden='true'>
               <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2.5' d='M14 5l7 7m0 0l-7 7m7-7H3' />
             </svg>
           </a>
@@ -81,7 +79,7 @@ const LeftContent = () => {
             rel='noopener noreferrer'
             className='w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-[#151312] hover:bg-[#252220] active:scale-[0.98] text-white font-semibold text-xs transition-all shadow-sm cursor-pointer'
           >
-            <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+            <svg className='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24' aria-hidden='true'>
               <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z' />
             </svg>
             <span>View Resume (PDF)</span>
@@ -114,6 +112,7 @@ const LeftContent = () => {
               <span className='truncate'>LinkedIn</span>
             </a>
           </div>
+
         </div>
       </div>
     </aside>

@@ -4,6 +4,7 @@ import Project from './Project'
 import Experience from './Experience'
 import TechStack from './TechStack'
 import Contact from './Contact'
+import { motion } from 'motion/react'
 
 const RightContent = () => {
   return (
@@ -13,6 +14,7 @@ const RightContent = () => {
       </section>
 
       <section id='projects' className='scroll-mt-24 sm:scroll-mt-28 w-full'>
+        
         <Project />
       </section>
 

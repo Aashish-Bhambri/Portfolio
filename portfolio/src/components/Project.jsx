@@ -1,5 +1,7 @@
 import React from 'react'
 import { MoveUpRight } from 'lucide-react'
+import { motion } from 'motion/react'
+
 
 const Project = () => {
   const projects = [
@@ -21,7 +23,17 @@ const Project = () => {
   ]
 
   return (
-    <div>
+
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+
       <h1 className='text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 sm:mb-8 tracking-tight leading-[0.95] break-words'>
         RECENT<br />
         <span className='text-content-ghost'>PROJECTS</span>
@@ -55,7 +67,7 @@ const Project = () => {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

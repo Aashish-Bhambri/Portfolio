@@ -1,5 +1,6 @@
 import React from 'react'
 import { Check, Zap, Sparkles } from 'lucide-react'
+import { motion } from 'motion/react'
 
 const Experience = () => {
   const steps = [
@@ -8,8 +9,6 @@ const Experience = () => {
       org: 'Chandigarh University',
       date: '2022 – 2026',
       desc: 'Mastered Data Structures & Algorithms, Object-Oriented Architecture, Database Systems (PostgreSQL), and modern web fundamentals.',
-      badge: 'Milestone 01',
-      badgeColor: 'text-accent-lime border-accent-lime/30 bg-accent-lime/10',
       status: 'completed',
     },
     {
@@ -17,17 +16,6 @@ const Experience = () => {
       org: 'Webblaze Softech',
       date: 'September 2026 - Present',
       desc: 'Engineered responsive client dashboards with React & Next.js. Integrated REST APIs, managed state, and optimized UI render speeds by 28%.',
-      badge: 'Experienced',
-      badgeColor: 'text-accent-lime border-accent-lime/30 bg-accent-lime/10',
-      status: 'active',
-    },
-    {
-      title: 'Full-Stack Production Projects',
-      org: 'Self-Directed Engineering',
-      date: 'Present Focus',
-      desc: 'Architecting full-stack SaaS applications using Next.js 15, TypeScript, Tailwind v4, and Prisma. Ensuring 98+ Lighthouse scores.',
-      badge: 'Current Stage',
-      badgeColor: 'text-accent-orange border-accent-orange/40 bg-accent-orange/15',
       status: 'active',
     },
     {
@@ -35,18 +23,23 @@ const Experience = () => {
       org: 'Your Engineering Team',
       date: 'Ready to Deploy',
       desc: 'Actively looking for full-time frontend or full-stack software engineering opportunities where I can contribute to high-impact products from Day 1.',
-      badge: 'Next Destination',
-      badgeColor: 'text-content-secondary border-dashed border-white/20 bg-transparent',
       status: 'future',
     },
   ]
 
   return (
-    <div>
-      <h1 className='text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 sm:mb-10 tracking-tight leading-[0.95] break-words'>
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >      <h2 className='text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 sm:mb-10 tracking-tight leading-[0.95] break-words'>
         EXPERIENCE & <br />
         <span className='text-content-ghost'>JOURNEY</span>
-      </h1>
+      </h2>
 
       <div className='relative pl-1 sm:pl-3 space-y-6 sm:space-y-8'>
         {steps.map((step, idx) => {
@@ -56,34 +49,34 @@ const Experience = () => {
           const isFuture = step.status === 'future'
 
           return (
-            <div key={idx} className='relative flex gap-4 sm:gap-7 group'>
+            <div key={step.title} className='relative flex gap-4 sm:gap-7 group'>
               {/* Vertical connector line */}
               {!isLast && (
                 <div
-                  className={`absolute left-[15px] sm:left-[19px] top-8 sm:top-10 bottom-[-24px] sm:bottom-[-32px] w-[2px] ${
-                    isFuture
-                      ? 'border-l-2 border-dashed border-white/15'
-                      : isActive
+                  aria-hidden='true'
+                  className={`absolute left-[15px] sm:left-[19px] top-8 sm:top-10 bottom-[-24px] sm:bottom-[-32px] w-[2px] ${isFuture
+                    ? 'border-l-2 border-dashed border-white/15'
+                    : isActive
                       ? 'bg-gradient-to-b from-accent-orange to-white/15'
                       : 'bg-accent-lime/40'
-                  }`}
+                    }`}
                 />
               )}
 
               {/* Node / Indicator Dot */}
-              <div className='relative z-10 flex-shrink-0'>
+              <div className='relative z-10 flex-shrink-0' aria-hidden='true'>
                 {isCompleted && (
                   <div className='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-lime text-black flex items-center justify-center shadow-[0_0_15px_rgba(197,255,65,0.4)]'>
                     <Check className='w-4 h-4 sm:w-5 sm:h-5 stroke-[3]' />
                   </div>
                 )}
                 {isActive && (
-                  <div className='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-orange text-white flex items-center justify-center shadow-[0_0_0_5px_rgba(244,108,56,0.2),0_0_20px_rgba(244,108,56,0.6)] animate-pulse'>
+                  <div className='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-accent-orange text-[#151312] flex items-center justify-center shadow-[0_0_0_5px_rgba(244,108,56,0.2),0_0_20px_rgba(244,108,56,0.6)] animate-pulse motion-reduce:animate-none'>
                     <Zap className='w-4 h-4 sm:w-5 sm:h-5' />
                   </div>
                 )}
                 {isFuture && (
-                  <div className='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/5 border-2 border-dashed border-white/30 text-white/40 flex items-center justify-center'>
+                  <div className='w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/5 border-2 border-dashed border-white/30 text-white/60 flex items-center justify-center'>
                     <Sparkles className='w-4 h-4 sm:w-5 sm:h-5' />
                   </div>
                 )}
@@ -91,13 +84,12 @@ const Experience = () => {
 
               {/* Card content */}
               <div
-                className={`flex-1 p-4 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all duration-300 min-w-0 ${
-                  isActive
-                    ? 'bg-gradient-to-br from-accent-orange/[0.07] to-surface border-accent-orange/40 shadow-[0_10px_30px_rgba(244,108,56,0.12)]'
-                    : isFuture
+                className={`flex-1 p-4 sm:p-6 rounded-2xl sm:rounded-3xl border transition-all duration-300 min-w-0 ${isActive
+                  ? 'bg-gradient-to-br from-accent-orange/[0.07] to-surface border-accent-orange/40 shadow-[0_10px_30px_rgba(244,108,56,0.12)]'
+                  : isFuture
                     ? 'bg-white/[0.015] border-dashed border-white/15'
-                    : 'bg-surface border-white/5 hover:border-white/15 hover:bg-white/[0.04]'
-                }`}
+                    : 'bg-surface border-white/5'
+                  }`}
               >
                 <div className='flex flex-wrap items-center justify-between gap-2 mb-1.5'>
                   <h3 className='text-lg sm:text-xl md:text-2xl font-bold text-white'>
@@ -109,8 +101,8 @@ const Experience = () => {
                   <span className='font-semibold text-accent-orange'>
                     {step.org}
                   </span>
-                  <span>•</span>
-                  <span className='font-mono text-content-secondary/80'>
+                  <span aria-hidden='true'>•</span>
+                  <span className='font-mono text-content-secondary'>
                     {step.date}
                   </span>
                 </div>
@@ -123,7 +115,7 @@ const Experience = () => {
           )
         })}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

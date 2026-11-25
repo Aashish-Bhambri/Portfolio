@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Send, CheckCircle2 } from 'lucide-react'
-import emailjs, { EmailJSResponseStatus } from '@emailjs/browser'
+import emailjs from '@emailjs/browser'
+import { motion } from 'motion/react'
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -11,21 +12,33 @@ const Contact = () => {
     e.preventDefault()
     if (isSubmitting) return
 
+    const trimmedName = formData.name.trim()
+    const trimmedEmail = formData.email.trim()
+    const trimmedMessage = formData.message.trim()
+
+    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+      setStatus({
+        type: 'error',
+        message: 'Please fill in your name, email address, and message before sending.',
+      })
+      return
+    }
+
     const {
       VITE_EMAILJS_SERVICE_ID,
       VITE_EMAILJS_TEMPLATE_ID,
       VITE_EMAILJS_PUBLIC_KEY,
     } = import.meta.env
-    const missingConfig = [
-      ['VITE_EMAILJS_SERVICE_ID', VITE_EMAILJS_SERVICE_ID],
-      ['VITE_EMAILJS_TEMPLATE_ID', VITE_EMAILJS_TEMPLATE_ID],
-      ['VITE_EMAILJS_PUBLIC_KEY', VITE_EMAILJS_PUBLIC_KEY],
-    ].filter(([, value]) => !value?.trim()).map(([name]) => name)
+    const hasConfig = [
+      VITE_EMAILJS_SERVICE_ID,
+      VITE_EMAILJS_TEMPLATE_ID,
+      VITE_EMAILJS_PUBLIC_KEY,
+    ].every((value) => Boolean(value?.trim()))
 
-    if (missingConfig.length > 0) {
+    if (!hasConfig) {
       setStatus({
         type: 'error',
-        message: `Contact form configuration is missing for this deployment: ${missingConfig.join(', ')}. Add these as build environment variables and redeploy.`,
+        message: 'The contact form is temporarily unavailable on this deployment.',
       })
       return
     }
@@ -38,13 +51,13 @@ const Contact = () => {
         VITE_EMAILJS_SERVICE_ID,
         VITE_EMAILJS_TEMPLATE_ID,
         {
-          name: formData.name,
-          email: formData.email,
-          from_name: formData.name,
-          from_email: formData.email,
-          contact_email: formData.email,
-          reply_to: formData.email,
-          message: formData.message,
+          name: trimmedName,
+          email: trimmedEmail,
+          from_name: trimmedName,
+          from_email: trimmedEmail,
+          contact_email: trimmedEmail,
+          reply_to: trimmedEmail,
+          message: trimmedMessage,
         },
         { publicKey: VITE_EMAILJS_PUBLIC_KEY },
       )
@@ -55,14 +68,9 @@ const Contact = () => {
       })
     } catch (error) {
       console.error('Failed to send contact form message with EmailJS:', error)
-      const errorDetails = error instanceof EmailJSResponseStatus
-        ? `EmailJS error ${error.status}: ${error.text}`
-        : error instanceof Error
-          ? error.message
-          : 'Check the browser console for details.'
       setStatus({
         type: 'error',
-        message: `Your message could not be sent. ${errorDetails}`,
+        message: 'Your message could not be sent right now. Please check your connection and try again.',
       })
     } finally {
       setIsSubmitting(false)
@@ -70,24 +78,31 @@ const Contact = () => {
   }
 
   return (
-    <div>
-      <h1 className='text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 sm:mb-8 tracking-tight leading-[0.95] break-words'>
-        LET'S WORK<br />
+    <motion.div
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <h2 className='text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 sm:mb-8 tracking-tight leading-[0.95] break-words'>
+        LET&apos;S WORK<br />
         <span className='text-content-ghost'>TOGETHER</span>
-      </h1>
+      </h2>
 
       <form onSubmit={handleSubmit} className='flex flex-col gap-4 sm:gap-5 max-w-2xl'>
         {status && (
           <div
             role={status.type === 'error' ? 'alert' : 'status'}
             aria-live={status.type === 'error' ? 'assertive' : 'polite'}
-            className={`flex items-center gap-3 p-4 rounded-2xl border text-sm font-semibold ${
-              status.type === 'success'
+            className={`flex items-center gap-3 p-4 rounded-2xl border text-sm font-semibold ${status.type === 'success'
                 ? 'bg-accent-lime/10 border-accent-lime/30 text-accent-lime'
                 : 'bg-red-500/10 border-red-400/30 text-red-300'
-            }`}
+              }`}
           >
-            {status.type === 'success' && <CheckCircle2 className='w-5 h-5 flex-shrink-0' />}
+            {status.type === 'success' && <CheckCircle2 className='w-5 h-5 flex-shrink-0' aria-hidden='true' />}
             <span>{status.message}</span>
           </div>
         )}
@@ -105,7 +120,7 @@ const Contact = () => {
               }}
               placeholder='Your Name'
               autoComplete='name'
-              className='bg-surface border border-white/10 rounded-2xl px-4 py-3 text-white placeholder:text-white/25 focus:border-accent-orange focus:ring-1 focus:ring-accent-orange/40 focus:outline-none transition-all text-sm'
+              className='bg-surface border border-white/10 rounded-2xl px-4 py-3 text-white placeholder:text-white/55 focus:border-accent-orange focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent-orange transition-colors text-sm'
             />
           </label>
 
@@ -122,7 +137,7 @@ const Contact = () => {
               }}
               placeholder='your.email@example.com'
               autoComplete='email'
-              className='bg-surface border border-white/10 rounded-2xl px-4 py-3 text-white placeholder:text-white/25 focus:border-accent-orange focus:ring-1 focus:ring-accent-orange/40 focus:outline-none transition-all text-sm'
+              className='bg-surface border border-white/10 rounded-2xl px-4 py-3 text-white placeholder:text-white/55 focus:border-accent-orange focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent-orange transition-colors text-sm'
             />
           </label>
         </div>
@@ -139,21 +154,20 @@ const Contact = () => {
               setStatus(null)
             }}
             placeholder='Tell me about your project, team, or opportunity...'
-            className='bg-surface border border-white/10 rounded-2xl p-4 text-white placeholder:text-white/25 focus:border-accent-orange focus:ring-1 focus:ring-accent-orange/40 focus:outline-none transition-all text-sm resize-none'
+            className='bg-surface border border-white/10 rounded-2xl p-4 text-white placeholder:text-white/55 focus:border-accent-orange focus-visible:outline-2 focus-visible:outline-offset-0 focus-visible:outline-accent-orange transition-colors text-sm resize-none'
           />
         </label>
 
         <button
           type='submit'
           disabled={isSubmitting}
-          className='w-full sm:w-auto bg-accent-orange hover:brightness-110 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed font-bold text-white py-3.5 px-8 rounded-xl transition-all self-start cursor-pointer shadow-lg shadow-accent-orange/20 flex items-center justify-center gap-2 mt-2'
+          className='w-full sm:w-auto bg-accent-orange hover:brightness-105 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed font-bold text-[#151312] py-3.5 px-8 rounded-xl transition-all self-start cursor-pointer shadow-lg shadow-accent-orange/20 flex items-center justify-center gap-2 mt-2'
         >
           <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-          {!isSubmitting && <Send className='w-4 h-4' />}
+          {!isSubmitting && <Send className='w-4 h-4' aria-hidden='true' />}
         </button>
       </form>
-    </div>
-  )
+    </motion.div>)
 }
 
 export default Contact
