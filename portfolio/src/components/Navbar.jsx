@@ -106,7 +106,7 @@ const Navbar = () => {
               title={item.label}
               className={`relative flex items-center justify-center gap-1.5 w-11 h-11 sm:w-auto sm:h-10 sm:px-3.5 rounded-full transition-colors duration-200 group ${
                 isActive
-                  ? 'bg-accent-orange text-[#151312] font-bold shadow-[0_0_14px_rgba(244,108,56,0.45)]'
+                  ? 'bg-accent-orange text-[#151312] font-bold '
                   : 'text-content-secondary font-semibold hover:text-white hover:bg-white/5'
               }`}
             >
