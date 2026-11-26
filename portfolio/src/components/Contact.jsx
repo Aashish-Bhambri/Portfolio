@@ -81,7 +81,7 @@ const Contact = () => {
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 2 } },
       }}
       initial="hidden"
       whileInView="visible"
@@ -98,8 +98,8 @@ const Contact = () => {
             role={status.type === 'error' ? 'alert' : 'status'}
             aria-live={status.type === 'error' ? 'assertive' : 'polite'}
             className={`flex items-center gap-3 p-4 rounded-2xl border text-sm font-semibold ${status.type === 'success'
-                ? 'bg-accent-lime/10 border-accent-lime/30 text-accent-lime'
-                : 'bg-red-500/10 border-red-400/30 text-red-300'
+              ? 'bg-accent-lime/10 border-accent-lime/30 text-accent-lime'
+              : 'bg-red-500/10 border-red-400/30 text-red-300'
               }`}
           >
             {status.type === 'success' && <CheckCircle2 className='w-5 h-5 flex-shrink-0' aria-hidden='true' />}

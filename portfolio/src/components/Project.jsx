@@ -6,17 +6,18 @@ import { motion } from 'motion/react'
 const Project = () => {
   const projects = [
     {
+      img: './apiMonitor.png',
+      name: 'Api Monitor',
+      des: 'Full-Stack ',
+      link: 'https://api-monitor-qtlz.vercel.app/'
+    },
+    {
       img: '/shopease-thumbnail.png',
       name: 'ShopEase',
       des: 'Full-Stack E-Commerce Platform (React 19, Redux & Tailwind)',
       link: 'https://shop-ease-ten-lovat.vercel.app/'
     },
-    {
-      img: 'https://framerusercontent.com/images/4mYEXU91rLBNKIW9k6hZh16l7Q.jpeg?scale-down-to=512&width=2400&height=1800',
-      name: 'TaskFlow MCP',
-      des: 'Autonomous Project Orchestration Platform',
-      link: ''
-    },
+
     {
       img: 'https://framerusercontent.com/images/5Ra4AFZmEJOkMGLAEjkRXt2oqF4.png?scale-down-to=512&width=2400&height=1800',
       name: ' GameVerseHub',
@@ -30,7 +31,7 @@ const Project = () => {
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 2 } },
       }}
       initial="hidden"
       whileInView="visible"

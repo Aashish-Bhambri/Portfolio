@@ -65,7 +65,7 @@ const TechStack = () => {
     <motion.div
       variants={{
         hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 2 } },
       }}
       initial="hidden"
       whileInView="visible"
@@ -89,8 +89,8 @@ const TechStack = () => {
                 >
                   <div
                     className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl border flex items-center justify-center p-2.5 flex-shrink-0 ${item.lightIconBg
-                        ? 'bg-white/90 border-white/20'
-                        : 'bg-white/5 border-white/10'
+                      ? 'bg-white/90 border-white/20'
+                      : 'bg-white/5 border-white/10'
                       }`}
                   >
                     <img

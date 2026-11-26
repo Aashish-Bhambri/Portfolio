@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concept 3: Expanded In-Stream Bento Showcase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            canvas: '#151312',
+            surface: 'rgba(255, 255, 255, 0.03)',
+            'surface-card': '#1c1917',
+            'accent-orange': '#f46c38',
+            'accent-lime': '#c5ff41',
+            'content-ghost': 'rgba(182, 180, 189, 0.2)',
+            'content-secondary': '#998f8f',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #151312; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="min-h-screen bg-canvas text-white p-8">
+
+  <div class="max-w-4xl mx-auto space-y-10">
+
+    <!-- Section Header -->
+    <div>
+      <h1 class="text-6xl sm:text-7xl font-extrabold tracking-tight text-white leading-none">
+        FEATURED<br>
+        <span class="text-content-ghost">PROJECTS</span>
+      </h1>
+      <p class="text-content-secondary text-base mt-3">
+        Comprehensive case studies engineered with production rigor, high Lighthouse scores, and modern architectures.
+      </p>
+    </div>
+
+    <!-- PROJECT 1: SHOPEASE (EXPANDED SHOWCASE CARD) -->
+    <div class="rounded-3xl bg-surface border border-white/10 hover:border-accent-orange/40 transition-all duration-300 overflow-hidden group shadow-2xl">
+      <!-- Media Header Frame -->
+      <div class="p-6 pb-0 bg-gradient-to-b from-[#201c19] to-[#171413]">
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#0c0b0a] relative">
+          <!-- Mini browser top bar -->
+          <div class="bg-[#1f1b18] px-4 py-2.5 flex items-center justify-between border-b border-white/10">
+            <div class="flex gap-1.5">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+            </div>
+            <span class="text-[11px] font-mono text-content-secondary/80">https://shop-ease-ten-lovat.vercel.app</span>
+            <span class="px-2 py-0.5 rounded bg-accent-lime/10 text-accent-lime text-[10px] font-bold">LIVE APP</span>
+          </div>
+          <!-- Thumbnail preview -->
+          <div class="h-64 sm:h-80 overflow-hidden relative">
+            <img src="file:///C:/work/Portfolio/portfolio/public/shopease-thumbnail.png" alt="ShopEase" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Content Info -->
+      <div class="p-6 sm:p-8 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <span class="text-xs font-mono text-accent-orange font-bold uppercase tracking-wider">01 • E-COMMERCE PLATFORM</span>
+            <h3 class="text-3xl font-extrabold text-white mt-1 group-hover:text-accent-orange transition-colors">ShopEase</h3>
+          </div>
+          <!-- Tech pills -->
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white">React 19</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white">Redux Toolkit</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white">Tailwind v4</span>
+          </div>
+        </div>
+
+        <p class="text-content-secondary text-sm leading-relaxed">
+          Engineered full-stack online retail experience featuring persistent global cart state, instant SKU search indexing (&lt;50ms), and clean responsive checkout drawers.
+        </p>
+
+        <!-- Feature Bullets -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 border-t border-white/5">
+          <div class="flex items-center gap-2.5 text-xs text-content-secondary">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-lime"></span>
+            <span>Optimistic Redux state updates with Zero Layout Shift</span>
+          </div>
+          <div class="flex items-center gap-2.5 text-xs text-content-secondary">
+            <span class="w-1.5 h-1.5 rounded-full bg-accent-orange"></span>
+            <span>Client-side multi-facet catalogue filtering</span>
+          </div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="flex items-center gap-3 pt-2">
+          <a href="https://shop-ease-ten-lovat.vercel.app/" target="_blank" class="px-5 py-2.5 rounded-xl bg-accent-orange hover:brightness-110 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-accent-orange/20 cursor-pointer">
+            <span>Live Preview</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <button class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold text-xs flex items-center gap-2 cursor-pointer transition-colors">
+            <span>Deep Dive Details</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: GAMEVERSE HUB (EXPANDED SHOWCASE CARD) -->
+    <div class="rounded-3xl bg-surface border border-white/10 hover:border-accent-orange/40 transition-all duration-300 overflow-hidden group shadow-2xl">
+      <div class="p-6 pb-0 bg-gradient-to-b from-[#201c19] to-[#171413]">
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-[#0c0b0a] relative">
+          <div class="bg-[#1f1b18] px-4 py-2.5 flex items-center justify-between border-b border-white/10">
+            <div class="flex gap-1.5">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+            </div>
+            <span class="text-[11px] font-mono text-content-secondary/80">https://vault-delta-seven.vercel.app</span>
+            <span class="px-2 py-0.5 rounded bg-accent-lime/10 text-accent-lime text-[10px] font-bold">LIVE APP</span>
+          </div>
+          <div class="h-64 sm:h-72 overflow-hidden relative">
+            <img src="https://framerusercontent.com/images/5Ra4AFZmEJOkMGLAEjkRXt2oqF4.png?scale-down-to=512&width=2400&height=1800" alt="GameVerse" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500">
+          </div>
+        </div>
+      </div>
+
+      <div class="p-6 sm:p-8 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <span class="text-xs font-mono text-accent-orange font-bold uppercase tracking-wider">02 • DISCOVERY & ANALYTICS</span>
+            <h3 class="text-3xl font-extrabold text-white mt-1 group-hover:text-accent-orange transition-colors">GameVerse Hub</h3>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white">React</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white">RAWG API</span>
+            <span class="px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-semibold text-white">Zustand</span>
+          </div>
+        </div>
+
+        <p class="text-content-secondary text-sm leading-relaxed">
+          Video game exploration platform aggregating real-time ratings, release schedules, and genre analytics across thousands of gaming titles with infinite scrolling.
+        </p>
+
+        <div class="flex items-center gap-3 pt-2">
+          <a href="https://vault-delta-seven.vercel.app/" target="_blank" class="px-5 py-2.5 rounded-xl bg-accent-orange hover:brightness-110 text-white font-bold text-xs flex items-center gap-2 shadow-lg shadow-accent-orange/20 cursor-pointer">
+            <span>Live Preview</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <button class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold text-xs flex items-center gap-2 cursor-pointer transition-colors">
+            <span>Deep Dive Details</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
