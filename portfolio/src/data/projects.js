@@ -108,12 +108,12 @@ export const projects = [
       'Shipped a responsive, production-deployed e-commerce storefront with fast client-side filtering, reliable cart persistence, and clean user flows deployed on Vercel.',
   },
   {
-    slug: 'gameverse-hub',
-    name: 'GameVerseHub',
-    title: 'GameVerse Hub',
+    slug: 'vault',
+    name: 'Vault',
+    title: 'Vault',
     shortDes: 'Video Game Discovery & Analytics Platform',
     subtitle: 'Exploring thousands of video game titles with dynamic API filtering, ratings insights, and rich media cards.',
-    img: 'https://framerusercontent.com/images/5Ra4AFZmEJOkMGLAEjkRXt2oqF4.png?scale-down-to=512&width=2400&height=1800',
+    img: '/vault-thumbnail.png',
     liveUrl: 'https://vault-delta-seven.vercel.app/',
     githubUrl: 'https://github.com/Aashish-Bhambri',
     status: 'Live',
@@ -124,7 +124,7 @@ export const projects = [
     slides: [
       {
         type: 'image',
-        src: 'https://framerusercontent.com/images/5Ra4AFZmEJOkMGLAEjkRXt2oqF4.png?scale-down-to=512&width=2400&height=1800',
+        src: '/vault-thumbnail.png',
         caption: 'Game Discovery Catalog & Visual Showcase',
       },
       {
