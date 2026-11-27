@@ -462,7 +462,7 @@ const ProjectDetail = ({ project, onNavigate, onBack, onContact, focusHeadingOnM
                       rel='noopener noreferrer'
                       className='inline-flex items-center gap-1.5 min-h-[40px] px-4 py-2 rounded-xl bg-accent-orange hover:brightness-105 active:scale-[0.98] text-[#151312] font-bold text-xs transition-all'
                     >
-                      <span>Live Demo</span>
+                      <span>Live</span>
                       <MoveUpRight className='w-3.5 h-3.5' aria-hidden='true' />
                     </a>
                   )}
