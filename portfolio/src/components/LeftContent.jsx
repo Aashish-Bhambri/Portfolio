@@ -18,12 +18,7 @@ const LeftContent = () => {
     >
       <div className='w-full bg-white rounded-3xl sm:min-h-[540px] p-5 sm:p-7 flex flex-col justify-between gap-6 shadow-2xl border border-black/5 lg:min-h-[650px]'>
         <div>
-          {/* Top Header: Monogram Avatar */}
-          <div className='flex items-center justify-between mb-5'>
-            <div className='w-12 h-12 rounded-2xl overflow-hidden shadow-md border border-black/5 flex-shrink-0 bg-[#151312]'>
-              <img src='/favicon.svg' alt='AB Monogram Logo' width={48} height={48} className='w-full h-full object-cover' />
-            </div>
-          </div>
+          
 
           {/* Name & Title */}
           <div className='flex flex-col gap-1 mb-3'>
@@ -41,7 +36,7 @@ const LeftContent = () => {
           </p>
 
           {/* Core Tech Stack Tags */}
-          <div>
+          <div className='mb-5'>
             <div className='text-[11px] font-mono uppercase tracking-wider text-[#666666] mb-2 font-semibold'>
               Core Technologies
             </div>
@@ -54,6 +49,32 @@ const LeftContent = () => {
                   {tech}
                 </span>
               ))}
+            </div>
+          </div>
+
+          {/* Currently Building Section */}
+          <div className='bg-[#faf8f5] rounded-2xl p-3.5 sm:p-4 border border-[#ebe6de]'>
+            <div className='flex items-center justify-between gap-2 mb-2.5'>
+              <span className='text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#666666] font-semibold'>
+                Currently Building
+              </span>
+              
+            </div>
+
+            <div className='flex items-start gap-3'>
+              
+              <div className='min-w-0 flex-1'>
+                <h3 className='text-xs sm:text-sm font-bold text-[#151312] leading-snug'>
+                  API Monitoring Platform
+                </h3>
+                <p className='text-[11px] sm:text-xs text-[#666666] leading-relaxed mt-0.5'>
+                  Building reliable monitoring infrastructure with Redis, BullMQ and background workers.
+                </p>
+              </div>
+            </div>
+
+            <div className='mt-2.5 pt-2 border-t border-[#ece7df] text-[11px] font-medium text-[#777777]'>
+              React · TypeScript · PostgreSQL · Redis
             </div>
           </div>
         </div>

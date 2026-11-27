@@ -32,19 +32,8 @@ const About = () => {
             Focused on building responsive, maintainable web products and autonomous LLM agent workflows (MCP), with hands-on experience integrating REST APIs and cutting UI render times by 28% in production dashboards.
           </p>
         </div>
-
-        <dl className='grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-4 border-t border-white/10 max-w-2xl'>
-          {highlights.map((item) => (
-            <div key={item.label} className='flex flex-col gap-1'>
-              <dt className='text-content-secondary text-[11px] font-mono uppercase tracking-wider'>
-                {item.label}
-              </dt>
-              <dd className='text-sm sm:text-base font-bold text-white leading-snug'>
-                {item.value}
-              </dd>
-            </div>
-          ))}
-        </dl>
+        
+        
       </div>
     </motion.div>
   </>
